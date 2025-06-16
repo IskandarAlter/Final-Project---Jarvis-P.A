@@ -1,8 +1,17 @@
 package com.example.jarvisbackend.models;
 
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tasks")
 public class Task {
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
     private String description;
     private String deadline;
@@ -10,8 +19,7 @@ public class Task {
 
     public Task() {}
 
-    public Task(Long id, String title, String description, String deadline, boolean completed) {
-        this.id = id;
+    public Task(String title, String description, String deadline, boolean completed) {
         this.title = title;
         this.description = description;
         this.deadline = deadline;
